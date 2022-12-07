@@ -35,3 +35,8 @@ degap.seqs(fasta=current)
 ##Classify against Silva 128 (nr version, not the available from mothur)
 classify.seqs(fasta=current, template=Silva128_ShortAll.ng.fasta, taxonomy=taxmap_slv_ssu_ref_128_ShortAll.txt, group=current)
 count.seqs(count=current, compress=t)
+##aligned distance matrix
+clearcut(fasta=18s_final_alig.fasta, DNA=T, verbose=t, matrixout=carolina.dist, processors=30)
+##phylogenetic diversity
+phylo.diversity(tree=18s_final_alig.tre, count=conteo.txt, collect=T, summary=T, iters=1000, processors=30)
+
